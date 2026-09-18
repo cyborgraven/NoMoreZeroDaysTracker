@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#00ff41">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="NONZERO">
+  <title>NONZERO</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <p class="status" id="status-line">No zero days.</p>
+    <h1>NONZERO</h1>
+    <p class="status hidden" id="hello" style="text-align:center"></p>
+    <div class="row">
+      <button class="primary" data-act="theme" id="theme-btn">Light mode</button>
+    </div>
+
+    <details class="how section" style="padding:0">
+      <summary>&gt; How to use this tool</summary>
+      <div class="body" style="padding:0 14px 14px">
+        <p>This is a private notebook. Data stays in this browser unless you download a backup.</p>
+        <p><strong>Rule one — no more zero days.</strong> A zero day is a day with nothing toward the person you want to be. One box, one sentence, one bag of trash is legal. You do not have to do the essay.</p>
+        <p><strong>Present you</strong> is the only one who can act. Past you already tried. Future you lives with today.</p>
+        <p>If you blow it, forgive and start at the next hour. Not next Monday.</p>
+        <ul>
+          <li>Set the three scales. That is weather, not a verdict.</li>
+          <li>1–3 means shrink the plan and consider real support.</li>
+          <li>4–6 is the baseline we protect.</li>
+          <li>7–8 is a solid target. 9–10 is rare on purpose.</li>
+          <li>Tick care items when you do them. Points only describe the day.</li>
+          <li>Touch a goal if you moved it an inch.</li>
+          <li>Weight, calories, exercise are just numbers. No commentary.</li>
+        </ul>
+        <p>A <em>non-zero</em> day kept the light on. A <em>full send</em> day emptied the tank. Tomorrow may be smaller. That is allowed.</p>
+      </div>
+    </details>
+
+    <section class="section read" id="read-box"></section>
+
+    <section class="section">
+      <h2>Today’s weather</h2>
+      <div class="scale">
+        <header><span>Personal space</span><span id="val-space">5</span></header>
+        <input id="scale-space" type="range" min="1" max="10" value="5">
+        <p class="anchors">1 trash on the floor · 5 sanitary but cluttered · 10 surgery-ready</p>
+      </div>
+      <div class="scale">
+        <header><span>Hygiene</span><span id="val-hygiene">5</span></header>
+        <input id="scale-hygiene" type="range" min="1" max="10" value="5">
+        <p class="anchors">1 week-plus unwashed · 5 showered in 2–3 days, clean clothes · 10 not one hair out of place</p>
+      </div>
+      <div class="scale">
+        <header><span>Overall wellbeing</span><span id="val-wellbeing">5</span></header>
+        <input id="scale-wellbeing" type="range" min="1" max="10" value="5">
+        <p class="anchors">1 waiting to die · 5 existing and willing to keep at it · 10 joke-zen, not required</p>
+      </div>
+      <label for="note">One true sentence</label>
+      <textarea id="note" placeholder="Anything true is enough."></textarea>
+    </section>
+
+    <section class="section">
+      <h2>Body, fuel, movement</h2>
+      <p class="muted">Record and look back. No grade on these fields.</p>
+      <div class="metrics">
+        <div><label for="weight">Weight</label><input id="weight" type="number" step="0.1" inputmode="decimal"></div>
+        <div><label for="waist">Waist</label><input id="waist" type="number" step="0.1" inputmode="decimal"></div>
+        <div><label for="chest">Chest</label><input id="chest" type="number" step="0.1" inputmode="decimal"></div>
+        <div><label for="armL">Arm L</label><input id="armL" type="number" step="0.1" inputmode="decimal"></div>
+        <div><label for="armR">Arm R</label><input id="armR" type="number" step="0.1" inputmode="decimal"></div>
+        <div><label for="calories">Calories in</label><input id="calories" type="number" inputmode="numeric"></div>
+        <div class="full"><label for="exerciseWhat">Exercise</label><input id="exerciseWhat" type="text" placeholder="walk, lift, none…"></div>
+        <div class="full"><label for="exerciseMin">Minutes</label><input id="exerciseMin" type="number" inputmode="numeric"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Care list</h2>
+      <p class="muted">Easy to reset. Incomplete yesterday does not follow you as a scolding.</p>
+      <div id="care-list"></div>
+      <div class="actions">
+        <button class="small" data-act="add-care">Add item</button>
+        <button class="small" data-act="edit-care">Edit item</button>
+        <button class="small" data-act="del-care">Remove item</button>
+        <button class="small" data-act="reset-today">Reset today’s checks</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Goals</h2>
+      <p class="muted">Short, medium, long. Touch = you moved it an inch.</p>
+      <div id="goal-list"></div>
+      <button class="wide" data-act="add-goal">Add goal</button>
+    </section>
+
+    <section class="section">
+      <h2>Look back</h2>
+      <h3 class="muted" style="margin:0 0 6px">Week</h3>
+      <div id="hist-week"></div>
+      <h3 class="muted" style="margin:12px 0 6px">Month</h3>
+      <div id="hist-month"></div>
+      <h3 class="muted" style="margin:12px 0 6px">Year</h3>
+      <div id="hist-year"></div>
+      <h3 class="muted" style="margin:12px 0 6px">Recent log</h3>
+      <div id="hist-body"></div>
+    </section>
+
+    <section class="section">
+      <h2>This device</h2>
+      <label for="profile-name">What to call you</label>
+      <input id="profile-name" type="text" placeholder="optional">
+      <div class="actions">
+        <button class="small primary" data-act="save-name">Save name</button>
+        <button class="small" data-act="backup">Download backup</button>
+        <label class="file-btn small" style="display:inline-block">
+          Restore backup
+          <input id="restore-file" type="file" accept="application/json,.json" hidden>
+        </label>
+        <button class="small danger" data-act="erase">Erase local data</button>
+      </div>
+      <p class="muted">Each phone has its own log. Use the same browser. Back this up.</p>
+      <p class="notice">Not medical care. If you are in crisis in the US, call or text 988.</p>
+    </section>
+  </div>
+
+  <div class="sticky">
+    <button data-act="one-thing">Do one thing</button>
+    <button class="primary" data-act="save">Save today</button>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
