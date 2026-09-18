@@ -1,8 +1,8 @@
 # NONZERO
 
-A private, mobile-first tracker for non-zero days.
+A private, tracker for non-zero days.
 
-Inspired by u/ryans01’s “No More Zero Days.” Looks like a quieter cousin of Raven’s DOX2 Trait Planner. Data never leaves the browser unless you download a backup.
+Inspired by u/ryans01’s “No More Zero Days” comment on Reddit. Data never leaves the browser unless you download a backup
 
 This is not medical advice.
 
@@ -22,13 +22,6 @@ This is not medical advice.
 Open `index.html` in a phone browser. Add to Home Screen if you want it to feel like an app.
 
 Use the **same browser** on that phone or you will not see the same data.
-
-## Put it on GitHub Pages
-
-1. Create a repo (example name: `nonzero`)
-2. Upload every file in this folder, keeping the folders (`css`, `js`, `assets`)
-3. Settings → Pages → Deploy from branch → `main` / root
-4. Site URL: `https://YOUR-USERNAME.github.io/nonzero/`
 
 Each person who opens the link gets their own private data on their own device.
 
